@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://bentoosilva001-coder.github.io/gs-empreendimentos/sitemap.xml
