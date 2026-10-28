@@ -1,0 +1,98 @@
+@font-face {
+      font-family: 'Sora';
+      src: url('fonts/sora-400.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+@font-face {
+      font-family: 'Sora';
+      src: url('fonts/sora-600.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+@font-face {
+      font-family: 'Sora';
+      src: url('fonts/sora-700.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+@font-face {
+      font-family: 'IBM Plex Sans';
+      src: url('fonts/plex-400.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+@font-face {
+      font-family: 'IBM Plex Sans';
+      src: url('fonts/plex-500.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+@font-face {
+      font-family: 'IBM Plex Sans';
+      src: url('fonts/plex-600.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+:root {
+      /* Paleta oficial do Grupo LumiNex: Azul Profundo + Dourado Nobre.
+         Usei um dourado um pouco mais "metálico" (#D4AF37) em vez do
+         amarelo puro (#FFD700) do manual — fica mais premium/sóbrio em
+         telas, o amarelo puro tende a parecer berrante em fundo escuro. */
+      --bg: #0A192F;
+      --surface: #0F2340;
+      --surface-2: #153458;
+      --text: #EAF1FA;
+      --text-dim: #90A3BC;
+      --accent: #D4AF37;
+      --accent-warm: #F0C955;
+      --border: #1F4A78;
+
+      --font-head: 'Sora', sans-serif;
+      --font-body: 'IBM Plex Sans', sans-serif;
+
+      --radius: 10px;
+      --max-width: 1080px;
+    }
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg,#0A192F);color:var(--text,#EAF1FA);font:16px/1.65 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
+h1,h2,h3{font-family:'Sora','IBM Plex Sans',system-ui,sans-serif;line-height:1.2;margin:0 0 10px}
+h1{font-size:clamp(28px,5.5vw,46px)}h2{font-size:clamp(22px,3.6vw,30px);margin-bottom:14px}h3{font-size:17px}
+a{color:var(--accent,#D4AF37)}.wrap{max-width:1040px;margin:0 auto;padding:0 18px}section.wrap{padding-top:38px;padding-bottom:6px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(10,25,47,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border,#1F4A78)}
+.nav-in{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text,#EAF1FA);text-decoration:none;font-family:'Sora',sans-serif}.brand b{color:var(--accent,#D4AF37)}
+.brand img{width:36px;height:36px;border-radius:8px;object-fit:cover;object-position:50% 34%}
+.nav nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}.nav nav a{color:var(--text-dim,#90A3BC);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:15px}.nav nav a:hover{color:var(--text,#EAF1FA);background:var(--surface,#0F2340)}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;border:1px solid var(--border,#1F4A78);background:var(--surface,#0F2340);color:var(--text,#EAF1FA);text-decoration:none;font:inherit;font-weight:500;cursor:pointer}
+.btn.primary{background:var(--accent,#D4AF37);border-color:var(--accent,#D4AF37);color:#0A1319;font-weight:700}
+.hero{padding-top:56px;padding-bottom:26px}.eyebrow{display:inline-block;font-size:13px;color:var(--accent,#D4AF37);margin-bottom:12px}
+.lead{color:var(--text-dim,#90A3BC);font-size:18px;max-width:720px}.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--surface,#0F2340);border:1px solid var(--border,#1F4A78);border-radius:14px;padding:18px}.card p{margin:6px 0 0;color:var(--text-dim,#90A3BC);font-size:15px}
+.note{color:var(--text-dim,#90A3BC);font-size:14px;margin-top:14px}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:10px}ol.steps li{counter-increment:s;background:var(--surface,#0F2340);border:1px solid var(--border,#1F4A78);border-radius:12px;padding:12px 14px 12px 54px;position:relative}
+ol.steps li:before{content:counter(s);position:absolute;left:14px;top:10px;width:28px;height:28px;border-radius:50%;background:var(--accent,#D4AF37);color:#0A1319;font-weight:700;text-align:center;line-height:28px}
+details{background:var(--surface,#0F2340);border:1px solid var(--border,#1F4A78);border-radius:12px;padding:12px 16px;margin:8px 0}summary{cursor:pointer;font-weight:600}details p{margin:8px 0 0;color:var(--text-dim,#90A3BC)}
+.panel{background:var(--surface,#0F2340);border:1px solid var(--border,#1F4A78);border-radius:16px;padding:24px;margin-bottom:30px}
+label{display:block;font-size:14px;color:var(--text-dim,#90A3BC);margin-top:12px}
+input[type=text],input[type=tel],input[type=email],textarea{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--border,#1F4A78);background:var(--bg,#0A192F);color:var(--text,#EAF1FA);font:inherit}
+label.consent{display:flex;gap:8px;align-items:flex-start;font-size:13px}label.consent input{margin-top:3px}
+.form-msg{margin-top:10px;font-size:14px}.form-msg.ok{color:#6FD08C}.form-msg.err{color:#FF8A8A}
+.chk{display:flex;gap:12px;align-items:flex-start;cursor:pointer;margin:0}.chk input{margin-top:5px;width:auto}.chk b{display:block;color:var(--text,#EAF1FA)}.chk small{color:var(--text-dim,#90A3BC)}.chk span.v{margin-left:auto;white-space:nowrap;color:var(--accent,#D4AF37);font-size:14px}
+.total{font-family:'Sora',sans-serif;font-size:26px;color:var(--accent,#D4AF37);margin:6px 0}
+.post{max-width:760px}.post h2{margin-top:28px}.post li{margin:6px 0}.meta{color:var(--text-dim,#90A3BC);font-size:14px}
+footer{margin-top:40px;border-top:1px solid var(--border,#1F4A78);padding:22px 0 90px;color:var(--text-dim,#90A3BC);font-size:14px}
+footer .wrap{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}footer a{color:var(--text-dim,#90A3BC);margin-right:14px}
+.wa-fab{position:fixed;right:16px;bottom:16px;z-index:30;background:#25D366;color:#fff;border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:26px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+#cookieBar{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;max-width:720px;margin:0 auto;background:var(--surface,#0F2340);border:1px solid var(--border,#1F4A78);border-radius:12px;padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+#cookieBar p{flex:1 1 320px;font-size:13px;color:var(--text-dim,#90A3BC);margin:0}#cookieBar button{padding:8px 16px;border-radius:8px;border:1px solid var(--border,#1F4A78);background:var(--surface-2,#14305A);color:var(--text,#EAF1FA);cursor:pointer;font:inherit}
+#cookieBar button.ok{background:var(--accent,#D4AF37);border-color:var(--accent,#D4AF37);color:#0A1319;font-weight:600}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

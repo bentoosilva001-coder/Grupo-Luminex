@@ -26,7 +26,7 @@ h1,h2{font-family:'Sora',sans-serif;line-height:1.25}h1{font-size:30px;margin:18
 
 <h2>2. Quais dados coletamos</h2>
 <ul>
-<li><strong>Formulário de contato:</strong> nome, WhatsApp, e-mail (opcional), a mensagem que você escrever, a confirmação do seu consentimento e a página de onde o pedido foi enviado.</li>
+<li><strong>Formulário de contato:</strong> nome, WhatsApp, e-mail (opcional), a mensagem que você escrever, a confirmação do seu consentimento a cidade e o serviço de interesse (quando informados), a página de onde o pedido foi enviado e os parâmetros de campanha do link, quando houver.</li>
 <li><strong>Conversas no WhatsApp:</strong> o número, o nome de perfil, as mensagens de texto e os áudios que você enviar ao nosso atendimento.</li>
 <li><strong>Métricas do site (somente se você aceitar os cookies):</strong> páginas visitadas, tempo de visita, tipo de aparelho e navegador, e de onde você veio (por exemplo, Google ou Instagram).</li>
 </ul>
@@ -49,6 +49,7 @@ h1,h2{font-family:'Sora',sans-serif;line-height:1.25}h1{font-size:30px;margin:18
 <p>Usamos prestadores de serviço (operadores) que tratam dados em nosso nome, apenas para as finalidades acima:</p>
 <ul>
 <li><strong>Formspree:</strong> recebe os dados do formulário de contato.</li>
+<li><strong>Supabase:</strong> armazena os pedidos enviados pelos formulários do site, que ficam em um painel de atendimento com acesso restrito ao responsável.</li>
 <li><strong>WhatsApp (Meta):</strong> plataforma das conversas.</li>
 <li><strong>Anthropic:</strong> processamento das mensagens pela IA do atendente.</li>
 <li><strong>Groq:</strong> transcrição de áudios em texto.</li>
@@ -75,9 +76,10 @@ h1,h2{font-family:'Sora',sans-serif;line-height:1.25}h1{font-size:30px;margin:18
 <h2>12. Mudanças nesta política</h2>
 <p>Podemos atualizar esta política. A data da última atualização fica no topo desta página.</p>
 </div>
+<script src="config.js"></script>
 <script>
 // Preenchidos a partir do mesmo CNPJ/cidade do index.html. Deixe vazio para ocultar.
-var LEGAL = { cnpj: '', cidadeUF: 'Santa Helena/MA' };
+var LEGAL = Object.assign({ cnpj: '', cidadeUF: 'Santa Helena/MA' }, window.LUMINEX || {});
 if (LEGAL.cnpj) { var a = document.getElementById('lgCnpj'); a.textContent = ' CNPJ ' + LEGAL.cnpj + '.'; a.hidden = false; }
 if (LEGAL.cidadeUF) { var b = document.getElementById('lgCid'); b.textContent = ' ' + LEGAL.cidadeUF + '.'; b.hidden = false; }
 </script></body></html>

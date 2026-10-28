@@ -974,6 +974,17 @@
     .footer-brands a { display: block; }
     .footer-brands img { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; object-position: 50% 34%; border: 1px solid var(--border); }
     @media (prefers-reduced-motion: reduce) { .brand-chip { transition: none; } }
+
+    /* ---- Pacotes e perguntas frequentes ---- */
+    .plan-price { font-family: var(--font-head); font-size: 24px; color: var(--accent); margin: 10px 0; }
+    .plan ul { padding-left: 18px; margin: 0 0 16px; color: var(--text-dim); font-size: 14px; }
+    .plan li { margin: 4px 0; }
+    .plan.destaque { border-color: var(--accent); }
+    .plan-note { margin-top: 18px; color: var(--text-dim); font-size: 14px; }
+    .plan-note a { color: var(--accent); }
+    .faq-list details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin: 8px 0; }
+    .faq-list summary { cursor: pointer; font-weight: 600; }
+    .faq-list p { margin: 8px 0 0; color: var(--text-dim); }
 </style>
   <!-- NÍVEL 4 (acima do avançado) — DADOS ESTRUTURADOS (JSON-LD):
        isso não aparece visualmente pra ninguém — é um "bilhete"
@@ -1050,6 +1061,8 @@
     gtag('js', new Date());
     gtag('config', 'G-4VXHNJ4802', { anonymize_ip: true });
   </script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto custa?", "acceptedAnswer": {"@type": "Answer", "text": "Depende do que você precisa. Os valores partem de R$ 1.000 (site) e R$ 2.000 (atendente de IA no WhatsApp). Depois de uma conversa de 30 minutos, enviamos uma proposta sob medida, sem compromisso."}}, {"@type": "Question", "name": "Quanto tempo leva?", "acceptedAnswer": {"@type": "Answer", "text": "A primeira fase costuma ir ao ar em até 6 dias. Projetos maiores são entregues em fases, com prazos combinados em contrato."}}, {"@type": "Question", "name": "Posso testar antes de contratar?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. O atendente de IA tem um período de teste de 7 dias, sem cobrança de mensalidade."}}, {"@type": "Question", "name": "E se eu já tiver um sistema?", "acceptedAnswer": {"@type": "Answer", "text": "Não precisamos trocar o que funciona. Integramos e somamos o que falta, como o atendimento automático e o painel."}}, {"@type": "Question", "name": "O atendente é uma pessoa ou uma IA?", "acceptedAnswer": {"@type": "Answer", "text": "É um assistente virtual com IA, e ele avisa isso quando perguntam. Sempre que o caso exigir, a conversa passa para uma pessoa da equipe."}}, {"@type": "Question", "name": "Como vocês cuidam dos meus dados?", "acceptedAnswer": {"@type": "Answer", "text": "Acesso com login, dados tratados conforme a LGPD, termo de tratamento de dados e acordo de confidencialidade quando necessário. Veja a Política de Privacidade."}}, {"@type": "Question", "name": "Quem cuida depois da entrega?", "acceptedAnswer": {"@type": "Answer", "text": "Há suporte e ajustes nos primeiros 30 dias, e planos de sustentação mensal para quem quiser acompanhamento contínuo."}}]}</script>
+<script src="config.js"></script>
 </head>
 <body>
 
@@ -1081,6 +1094,8 @@
       <div class="nav-links">
         <a href="#divisoes">Divisões</a>
         <a href="#empresas">Empresas e startups</a>
+        <a href="segmentos.html">Segmentos</a>
+        <a href="orcamento.html">Orçamento</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#cases" class="nav-cases" hidden>Cases</a>
         <a href="catalogo.html">Catálogo</a>
@@ -1331,6 +1346,18 @@
     </div>
   </section>
 
+  <section id="pacotes">
+    <div class="container">
+      <div class="section-head reveal"><h2>Pacotes e valores de referência</h2><p>Escolha por onde começar. Você pode ampliar depois, fase por fase.</p></div>
+      <div class="biz-grid">
+        <article class="biz-card plan reveal"><h3>Essencial</h3><p>Atendimento automático no WhatsApp</p><div class="plan-price">A partir de R$ 2.000</div><ul><li>Atendente de IA, 24 horas por dia</li><li>Teste de 7 dias, sem mensalidade</li><li>Treinamento da equipe</li><li>Ajustes nos primeiros 30 dias</li></ul><a class="btn-primary" href="https://wa.me/5598984110339?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20Essencial%20%28atendente%20de%20IA%20no%20WhatsApp%29." target="_blank" rel="noopener">Pedir proposta</a></article>
+        <article class="biz-card plan destaque reveal"><h3>Profissional</h3><p>Atendimento, site e painel</p><div class="plan-price">A partir de R$ 4.500</div><ul><li>Atendente de IA no WhatsApp</li><li>Site ou página de vendas</li><li>Painel de gestão dos contatos</li><li>Suporte e ajustes nos primeiros 30 dias</li></ul><a class="btn-primary" href="https://wa.me/5598984110339?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20pacote%20Profissional%20%28atendimento%2C%20site%20e%20painel%29." target="_blank" rel="noopener">Pedir proposta</a></article>
+        <article class="biz-card plan reveal"><h3>Sob medida</h3><p>Sistemas, aplicativos e IA interna</p><div class="plan-price">A partir de R$ 4.000</div><ul><li>Sistema web, aplicativo ou agente de IA</li><li>Integrações com o que você já usa</li><li>Entrega em fases, com contrato e escopo</li><li>Squad dedicado, se precisar</li></ul><a class="btn-primary" href="https://wa.me/5598984110339?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20um%20projeto%20sob%20medida." target="_blank" rel="noopener">Pedir proposta</a></article>
+      </div>
+      <p class="plan-note">Valores de referência. A proposta final sai depois de uma conversa de 30 minutos, sem compromisso. Custos de terceiros, como a plataforma oficial do WhatsApp, hospedagem e domínio, ficam à parte. <a href="orcamento.html">Calcular meu orçamento</a>.</p>
+    </div>
+  </section>
+
   <section id="cases" hidden>
     <div class="container">
       <div class="section-head reveal">
@@ -1456,7 +1483,14 @@
   </section>
 
   <!-- =========================== CONTATO =========================== -->
-  <section id="contato">
+    <section id="faq">
+    <div class="container">
+      <div class="section-head reveal"><h2>Perguntas frequentes</h2></div>
+      <div class="faq-list"><details><summary>Quanto custa?</summary><p>Depende do que você precisa. Os valores partem de R$ 1.000 (site) e R$ 2.000 (atendente de IA no WhatsApp). Depois de uma conversa de 30 minutos, enviamos uma proposta sob medida, sem compromisso.</p></details><details><summary>Quanto tempo leva?</summary><p>A primeira fase costuma ir ao ar em até 6 dias. Projetos maiores são entregues em fases, com prazos combinados em contrato.</p></details><details><summary>Posso testar antes de contratar?</summary><p>Sim. O atendente de IA tem um período de teste de 7 dias, sem cobrança de mensalidade.</p></details><details><summary>E se eu já tiver um sistema?</summary><p>Não precisamos trocar o que funciona. Integramos e somamos o que falta, como o atendimento automático e o painel.</p></details><details><summary>O atendente é uma pessoa ou uma IA?</summary><p>É um assistente virtual com IA, e ele avisa isso quando perguntam. Sempre que o caso exigir, a conversa passa para uma pessoa da equipe.</p></details><details><summary>Como vocês cuidam dos meus dados?</summary><p>Acesso com login, dados tratados conforme a LGPD, termo de tratamento de dados e acordo de confidencialidade quando necessário. Veja a Política de Privacidade.</p></details><details><summary>Quem cuida depois da entrega?</summary><p>Há suporte e ajustes nos primeiros 30 dias, e planos de sustentação mensal para quem quiser acompanhamento contínuo.</p></details></div>
+    </div>
+  </section>
+
+<section id="contato">
     <div class="container">
       <div class="contact-box">
         <div>
@@ -1539,6 +1573,9 @@
         <a href="catalogo.html">Catálogo</a>
         <a href="#cases" class="nav-cases" hidden>Cases</a>
         <a href="#contato">Contato</a>
+        <a href="segmentos.html">Segmentos</a>
+        <a href="orcamento.html">Orçamento</a>
+        <a href="blog/index.html">Blog</a>
         <a href="politica-de-privacidade.html">Política de Privacidade</a>
       </nav>
 
@@ -2010,6 +2047,20 @@
       return 'https://wa.me/' + CONFIG.whatsappNumber + '?text=' + texto;
     }
 
+    // Envia o pedido para a tabela "leads" do Supabase (entra no painel como "Novo").
+    function enviarLead(d) {
+      const L = window.LUMINEX || {};
+      if (!L.supabaseUrl || !L.supabaseKey) return;
+      const p = new URLSearchParams(location.search), utm = {};
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'ref'].forEach(function (k) { if (p.get(k)) utm[k] = p.get(k).slice(0, 60); });
+      fetch(L.supabaseUrl.replace(/\/$/, '') + '/rest/v1/leads', {
+        method: 'POST',
+        headers: { apikey: L.supabaseKey, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+        body: JSON.stringify(Object.assign({ pagina: location.pathname.slice(0, 200), utm: utm, consentimento: true }, d)),
+        keepalive: true,
+      }).catch(function () {});
+    }
+
     function formErro(texto) { formMsg.textContent = texto; formMsg.className = 'form-msg err'; }
 
     form.addEventListener('submit', function (e) {
@@ -2044,6 +2095,7 @@
         }).catch(function (err) { console.warn('Formspree falhou:', err); });
       } catch (err) { console.warn('Formspree falhou:', err); }
 
+      enviarLead({ nome: nome, whatsapp: whats, email: email, mensagem: msg.slice(0, 1500), segmento: '', servico: '' });
       if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'formulario' });
 
       formMsg.textContent = 'Abrindo o WhatsApp para finalizar o contato...';
@@ -2149,7 +2201,8 @@
     // ---- Rodapé legal, foto e cases (preenchidos pelo CONFIG) ----
     (function () {
       const lg = document.getElementById('legalLine');
-      if (lg && (CONFIG.cnpj || CONFIG.cidadeUF)) { lg.textContent = [CONFIG.cnpj ? 'CNPJ ' + CONFIG.cnpj : '', CONFIG.cidadeUF].filter(Boolean).join(' · '); lg.hidden = false; }
+      const LG = window.LUMINEX || {}, cnpj = CONFIG.cnpj || LG.cnpj || '', cid = CONFIG.cidadeUF || LG.cidadeUF || '';
+      if (lg && (cnpj || cid)) { lg.textContent = [cnpj ? 'CNPJ ' + cnpj : '', cid].filter(Boolean).join(' · '); lg.hidden = false; }
       const av = document.querySelector('.about-avatar');
       if (av && CONFIG.fotoUrl) { const im = document.createElement('img'); im.src = CONFIG.fotoUrl; im.alt = 'Gerdyson Silva'; im.loading = 'lazy'; av.textContent = ''; av.removeAttribute('aria-hidden'); av.appendChild(im); }
       const cs = document.getElementById('cases'), lst = document.getElementById('casesList');

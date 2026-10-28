@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de orçamento · Grupo LumiNex</title>
+<meta name="description" content="Escolha os serviços e veja a faixa de investimento de referência para atendimento com IA, sites, sistemas e aplicativos.">
+<link rel="canonical" href="https://bentoosilva001-coder.github.io/gs-empreendimentos/orcamento.html">
+<meta property="og:title" content="Calculadora de orçamento · Grupo LumiNex"><meta property="og:description" content="Escolha os serviços e veja a faixa de investimento de referência para atendimento com IA, sites, sistemas e aplicativos.">
+<meta property="og:image" content="https://bentoosilva001-coder.github.io/gs-empreendimentos/assets/og-image.jpg"><meta property="og:type" content="website"><meta property="og:url" content="https://bentoosilva001-coder.github.io/gs-empreendimentos/orcamento.html">
+<meta name="theme-color" content="#0A192F"><link rel="icon" href="assets/logo-luminex.jpg">
+<link rel="stylesheet" href="site.css">
+</head><body>
+<header class="nav"><div class="wrap nav-in">
+<a class="brand" href="index.html"><img src="assets/logo-luminex.jpg" alt="LumiNex"><span>Grupo <b>LumiNex</b></span></a>
+<nav><a href="index.html#divisoes">Marcas</a><a href="segmentos.html">Segmentos</a><a href="orcamento.html">Orçamento</a><a href="catalogo.html">Catálogo</a><a href="blog/index.html">Blog</a></nav>
+<a class="btn primary" data-wa="Olá! Vim pelo site e gostaria de conversar." href="#">Falar agora</a></div></header>
+<main><section class="wrap hero"><span class="eyebrow">Orçamento em 1 minuto</span><h1>Descubra a faixa de investimento do seu projeto</h1><p class="lead">Marque o que você precisa. A estimativa usa os nossos valores de referência, e a proposta final sai depois de uma conversa de 30 minutos, sem compromisso.</p></section>
+<section class="wrap"><div class="panel"><div id="lista"></div>
+<div style="margin-top:18px"><div class="meta">Estimativa de referência</div><div class="total" id="tot">Selecione um serviço</div><div class="meta" id="men"></div></div>
+<p class="note">São valores de referência. O preço final depende do escopo, do porte e do que for contratado. Custos de terceiros, como a plataforma oficial do WhatsApp, hospedagem e domínio, ficam à parte.</p></div></section>
+<section class="wrap" id="contato"><div class="panel"><h2>Receba a proposta pelo WhatsApp</h2><p class="lead" style="font-size:16px">Informe seus dados e enviamos o resumo da sua escolha. Respondemos sem enrolação.</p>
+<form data-lead data-segmento="orcamento" data-servico="" novalidate>
+<label>Nome<input type="text" name="nome" autocomplete="name" placeholder="Seu nome"></label>
+<label>WhatsApp<input type="tel" name="whats" autocomplete="tel" placeholder="(00) 00000-0000"></label>
+<label>Cidade (opcional)<input type="text" name="cidade" autocomplete="address-level2"></label>
+<label>O que você precisa? (opcional)<textarea name="mensagem" rows="3"></textarea></label>
+<div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<label class="consent"><input type="checkbox" name="consent"><span>Concordo em compartilhar estes dados para receber retorno sobre o meu pedido, conforme a <a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
+<p class="form-msg" role="status"></p><button class="btn primary" type="submit" style="margin-top:8px;border:0">Enviar e abrir o WhatsApp</button></form></div></section>
+<script>
+(function(){
+var S=[['Atendente de IA no WhatsApp','Responde, qualifica e agenda 24 horas e passa à equipe o que exige uma pessoa.',2000,5000,'u'],
+['Site ou landing page','Página profissional, rápida no celular, com botão de WhatsApp.',1000,2500,'u'],
+['Automação de processos','Integra planilhas, ERP, CRM, e-mail e WhatsApp e elimina retrabalho.',1200,3500,'u'],
+['Dashboard e BI','Painéis e relatórios que apoiam a decisão.',1500,3000,'u'],
+['Agente de IA interno','Assistente que consulta os documentos e sistemas da empresa.',3000,7000,'u'],
+['Aplicativo (iOS e Android)','Aplicativo nativo ou multiplataforma, com publicação nas lojas.',3500,8000,'u'],
+['Sistema web sob medida','Gestão, portais e plataformas feitos para o seu processo.',4000,9000,'u'],
+['Edição de vídeo em escala','Cortes, legendas e versões para redes sociais, por mês.',600,1800,'m']];
+var f=function(n){return 'R$ '+n.toLocaleString('pt-BR')};
+var L=document.getElementById('lista'),T=document.getElementById('tot'),M=document.getElementById('men'),F=document.querySelector('form[data-lead]');
+S.forEach(function(s,i){var l=document.createElement('label');l.className='chk';
+l.innerHTML='<input type="checkbox" data-i="'+i+'"><div><b>'+s[0]+'</b><small>'+s[1]+'</small></div><span class="v">'+(s[4]==='m'?f(s[2])+' a '+f(s[3])+' /mês':'a partir de '+f(s[2]))+'</span>';L.appendChild(l);});
+function calc(){var a=0,b=0,ma=0,mb=0,nomes=[];
+L.querySelectorAll('input:checked').forEach(function(c){var s=S[+c.dataset.i];nomes.push(s[0]);if(s[4]==='m'){ma+=s[2];mb+=s[3];}else{a+=s[2];b+=s[3];}});
+var txt='';
+if(!nomes.length){T.textContent='Selecione um serviço';M.textContent='';}
+else{T.textContent=(a?f(a)+' a '+f(b):'Apenas serviço mensal');M.textContent=(ma?'+ '+f(ma)+' a '+f(mb)+' por mês (edição de vídeo)':'');
+txt='Estimativa de referência: '+(a?f(a)+' a '+f(b)+' (projeto)':'')+(ma?(a?' + ':'')+f(ma)+' a '+f(mb)+' por mês':'');}
+F.setAttribute('data-servico',nomes.join(', '));F.setAttribute('data-resumo',txt);
+if(window.LX)LX.evento('calculadora',{servicos:nomes.length});}
+L.addEventListener('change',calc);calc();
+})();
+</script></main>
+<footer><div class="wrap"><div><strong>Grupo LumiNex</strong> · G'S Empreendimentos<br><span id="legalLine" hidden></span></div>
+<div><a href="politica-de-privacidade.html">Política de Privacidade</a><a href="catalogo.html">Catálogo</a><a href="segmentos.html">Segmentos</a><a href="blog/index.html">Blog</a></div></div></footer>
+<a class="wa-fab" data-wa="Olá! Vim pelo site e gostaria de conversar." href="#" aria-label="Chamar no WhatsApp">&#9990;</a>
+<script>window.LX_ROOT='';</script><script src="config.js"></script><script src="luminex.js"></script>
+</body></html>
