@@ -985,6 +985,46 @@
     .faq-list details { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin: 8px 0; }
     .faq-list summary { cursor: pointer; font-weight: 600; }
     .faq-list p { margin: 8px 0 0; color: var(--text-dim); }
+
+    /* ---- Menu com acesso rápido, faixa de destaques e "por onde começar" ---- */
+    .topbar { background: var(--surface-2); border-bottom: 1px solid var(--border); text-align: center; font-size: 13px; padding: 8px 14px; color: var(--text-dim); }
+    .topbar a { color: var(--accent); font-weight: 600; margin-left: 6px; }
+    .nav-toggle { display: none; background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 8px 12px; font-size: 18px; cursor: pointer; }
+    .nav-dd { position: relative; }
+    .nav-dd-btn { background: none; border: 0; color: var(--text-dim); font: inherit; cursor: pointer; padding: 0; }
+    .nav-dd-btn:hover, .nav-dd.open .nav-dd-btn { color: var(--text); }
+    .nav-dd-menu { position: absolute; top: calc(100% + 12px); left: -12px; min-width: 280px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 8px; display: none; z-index: 70; box-shadow: 0 12px 32px rgba(0,0,0,.45); }
+    .nav-dd.open .nav-dd-menu { display: block; }
+    .nav-dd-menu a { display: block; padding: 8px 12px; border-radius: 8px; color: var(--text-dim); white-space: nowrap; }
+    .nav-dd-menu a:hover { background: var(--surface-2); color: var(--text); }
+    .nav-links a.nav-hl { color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 4px 12px; }
+    #acesso-rapido, #destaques, #comecar { padding: 22px 0 0; }
+    .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+    .quick-card { display: flex; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s; }
+    .quick-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .quick-card .qi { font-size: 26px; line-height: 1; }
+    .quick-card b { display: block; font-family: var(--font-head); font-size: 15px; }
+    .quick-card small { display: block; color: var(--text-dim); font-size: 12.5px; line-height: 1.4; }
+    .quick-wa { border-color: var(--accent); }
+    .hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+    .hl { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+    .hl strong { display: block; font-family: var(--font-head); font-size: 24px; color: var(--accent); }
+    .hl span { color: var(--text-dim); font-size: 13px; }
+    .start-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+    .start-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-decoration: none; color: var(--text); }
+    .start-card:hover { border-color: var(--accent); }
+    .start-card b { display: block; margin-bottom: 4px; }
+    .start-card span { color: var(--accent); font-size: 14px; }
+    @media (max-width: 720px) {
+      .nav-toggle { display: inline-block; margin-left: auto; }
+      .nav-links { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--border); padding: 12px 18px 18px; flex-direction: column; align-items: flex-start; gap: 8px; max-height: calc(100vh - 70px); overflow: auto; }
+      .nav-links.open { display: flex; }
+      .nav-dd-menu { position: static; display: block; box-shadow: none; border: 0; padding: 2px 0 6px 14px; background: none; min-width: 0; }
+      .nav-dd-btn { font-weight: 600; color: var(--text); text-align: left; }
+      .nav-dd-btn span { display: none; }
+      .nav-dd-menu a { padding: 6px 0; white-space: normal; }
+    }
+    @media (prefers-reduced-motion: reduce) { .quick-card { transition: none; } }
 </style>
   <!-- NÍVEL 4 (acima do avançado) — DADOS ESTRUTURADOS (JSON-LD):
        isso não aparece visualmente pra ninguém — é um "bilhete"
@@ -1073,6 +1113,7 @@
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- =========================== HEADER =========================== -->
+  <div class="topbar">Teste de 7 dias do atendente de IA, sem mensalidade no período. <a href="orcamento.html">Calcular orçamento</a></div>
   <header>
     <nav class="nav">
       <div class="logo">
@@ -1091,16 +1132,8 @@
              o atendimento automático está sempre ativo. -->
         <span class="online-badge"><span class="online-dot"></span>online</span>
       </div>
-      <div class="nav-links">
-        <a href="#divisoes">Divisões</a>
-        <a href="#empresas">Empresas e startups</a>
-        <a href="segmentos.html">Segmentos</a>
-        <a href="orcamento.html">Orçamento</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#cases" class="nav-cases" hidden>Cases</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="#contato">Contato</a>
-      </div>
+      <div class="nav-links" id="navLinks"><div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Serviços <span aria-hidden="true">▾</span></button><div class="nav-dd-menu"><a href="#luminex">LumiNex · dados, estratégia e IA</a><a href="#lumikode">LumiKode · software e engenharia</a><a href="#lumivek">LumiVek · automação e performance</a><a href="#empresas">Para empresas e startups</a><a href="#pacotes">Pacotes e valores</a><a href="catalogo.html"><b>Catálogo completo</b></a></div></div><div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Segmentos <span aria-hidden="true">▾</span></button><div class="nav-dd-menu"><a href="segmentos.html"><b>Ver todos os segmentos</b></a><a href="para-clinicas.html">Clínicas e consultórios</a><a href="para-odontologia.html">Odontologia</a><a href="para-imobiliarias.html">Imobiliárias</a><a href="para-turismo.html">Turismo e hotelaria</a><a href="para-construtoras.html">Construtoras</a><a href="para-restaurantes.html">Restaurantes</a><a href="para-escolas.html">Escolas e cursos</a><a href="para-contabilidade-advocacia.html">Contabilidade e advocacia</a><a href="para-transportadoras.html">Transportadoras</a><a href="para-lojas.html">Lojas e supermercados</a></div></div><a href="orcamento.html" class="nav-hl">Orçamento</a><a href="#como-funciona">Como funciona</a><a href="#cases" class="nav-cases" hidden>Cases</a><a href="blog/index.html">Blog</a><a href="#contato">Contato</a></div>
+      <button type="button" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
       <a href="#contato" class="btn-cta">Falar agora</a>
     </nav>
   </header>
@@ -1142,6 +1175,22 @@
   </section>
 
   <!-- =========================== AS 3 DIVISÕES (NOVO) =========================== -->
+  <!-- =========================== ACESSO RÁPIDO E DESTAQUES =========================== -->
+  <section id="acesso-rapido" aria-label="Acesso rápido">
+    <div class="container"><div class="quick-grid"><a class="quick-card" href="orcamento.html"><span class="qi" aria-hidden="true">🧮</span><span><b>Calcular orçamento</b><small>Faixa de valor em 1 minuto</small></span></a><a class="quick-card" href="segmentos.html"><span class="qi" aria-hidden="true">🏢</span><span><b>Soluções por segmento</b><small>Clínicas, imobiliárias, turismo e mais</small></span></a><a class="quick-card" href="catalogo.html"><span class="qi" aria-hidden="true">📘</span><span><b>Catálogo de serviços</b><small>Serviços e valores de referência</small></span></a><a class="quick-card" href="#pacotes"><span class="qi" aria-hidden="true">💼</span><span><b>Pacotes e valores</b><small>Essencial, Profissional e Sob medida</small></span></a><a class="quick-card quick-wa" href="https://wa.me/5598984110339?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener"><span class="qi" aria-hidden="true">💬</span><span><b>Falar no WhatsApp</b><small>Resposta rápida, sem enrolação</small></span></a></div></div>
+  </section>
+
+  <section id="destaques" aria-label="Destaques">
+    <div class="container"><div class="hl-grid"><div class="hl"><strong>7 dias</strong><span>de teste do atendente de IA, sem mensalidade no período</span></div><div class="hl"><strong>até 6 dias</strong><span>para a primeira fase no ar</span></div><div class="hl"><strong>24h</strong><span>de atendimento automático no WhatsApp</span></div><div class="hl"><strong>30 min</strong><span>de conversa para uma proposta sob medida, sem compromisso</span></div><div class="hl"><strong>LGPD</strong><span>dados tratados com cuidado e termo de tratamento</span></div><div class="hl"><strong>Brasil</strong><span>atendimento remoto, direto de Santa Helena/MA</span></div></div></div>
+  </section>
+
+  <section id="comecar">
+    <div class="container">
+      <div class="section-head reveal"><h2>Por onde começar?</h2><p>Escolha o cenário que mais parece com o seu.</p></div>
+      <div class="start-grid"><a class="start-card" href="#lumivek"><b>Clientes somem no WhatsApp?</b><span>Comece pelo atendente de IA →</span></a><a class="start-card" href="#lumikode"><b>Sem site, ou o site não gera contato?</b><span>Veja sites e páginas de vendas →</span></a><a class="start-card" href="#lumikode"><b>Planilhas e controle manual demais?</b><span>Painéis e sistemas sob medida →</span></a><a class="start-card" href="#empresas"><b>Tem um produto ou uma startup?</b><span>MVP, squad e IA interna →</span></a></div>
+    </div>
+  </section>
+
   <section id="divisoes">
     <div class="container">
       <div class="section-head reveal">
@@ -2298,6 +2347,28 @@
       document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
         a.addEventListener('click', function () { if (typeof gtag === 'function') gtag('event', 'whatsapp_click', { link_url: a.href.split('?')[0] }); });
       });
+    })();
+  </script>
+
+  <script>
+    // Menu: abre/fecha no celular e nas listas "Serviços" e "Segmentos"
+    (function () {
+      var tg = document.querySelector('.nav-toggle'), ln = document.getElementById('navLinks');
+      function fechaTudo() { document.querySelectorAll('.nav-dd.open').forEach(function (x) { x.classList.remove('open'); x.querySelector('.nav-dd-btn').setAttribute('aria-expanded', 'false'); }); }
+      if (tg && ln) {
+        tg.addEventListener('click', function (e) { e.stopPropagation(); var o = ln.classList.toggle('open'); tg.setAttribute('aria-expanded', String(o)); tg.textContent = o ? '✕' : '☰'; });
+        ln.addEventListener('click', function (e) { if (e.target.closest('a')) { ln.classList.remove('open'); tg.setAttribute('aria-expanded', 'false'); tg.textContent = '☰'; } });
+      }
+      document.querySelectorAll('.nav-dd-btn').forEach(function (b) {
+        b.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var dd = b.parentNode, aberto = dd.classList.contains('open');
+          fechaTudo();
+          if (!aberto) { dd.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
+        });
+      });
+      document.addEventListener('click', fechaTudo);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { fechaTudo(); if (ln) ln.classList.remove('open'); } });
     })();
   </script>
 </body>

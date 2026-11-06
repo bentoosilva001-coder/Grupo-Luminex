@@ -63,3 +63,18 @@
     });
   });
 })();
+
+// Menu: celular e listas
+(function () {
+  var tg = document.querySelector('.nav-toggle'), nv = document.getElementById('lxNav');
+  function fecha() { document.querySelectorAll('.nav-dd.open').forEach(function (x) { x.classList.remove('open'); x.querySelector('.nav-dd-btn').setAttribute('aria-expanded', 'false'); }); }
+  if (tg && nv) {
+    tg.addEventListener('click', function (e) { e.stopPropagation(); var o = nv.classList.toggle('open'); tg.setAttribute('aria-expanded', String(o)); tg.textContent = o ? '✕' : '☰'; });
+    nv.addEventListener('click', function (e) { if (e.target.closest('a')) { nv.classList.remove('open'); tg.setAttribute('aria-expanded', 'false'); tg.textContent = '☰'; } });
+  }
+  document.querySelectorAll('.nav-dd-btn').forEach(function (b) {
+    b.addEventListener('click', function (e) { e.stopPropagation(); var dd = b.parentNode, a = dd.classList.contains('open'); fecha(); if (!a) { dd.classList.add('open'); b.setAttribute('aria-expanded', 'true'); } });
+  });
+  document.addEventListener('click', fecha);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { fecha(); if (nv) nv.classList.remove('open'); } });
+})();
