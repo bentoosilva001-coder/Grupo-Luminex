@@ -48,6 +48,8 @@
       if (el._gotcha && el._gotcha.value) return;
       var nome = el.nome.value.trim(), whats = el.whats.value.trim();
       var cidade = el.cidade ? el.cidade.value.trim() : '', texto = el.mensagem ? el.mensagem.value.trim() : '';
+      var ex = []; f.querySelectorAll('[data-extra]').forEach(function (i) { var v = i.value.trim(); if (v) ex.push(i.getAttribute('data-extra') + ': ' + v); });
+      if (ex.length) texto = ex.join(' | ') + (texto ? ' | ' + texto : '');
       if (nome.length < 2) return erro('Digite seu nome.');
       if (whats.replace(/\D/g, '').length < 10) return erro('Digite um WhatsApp válido, com DDD.');
       if (!el.consent.checked) return erro('Marque a caixa de consentimento para continuar.');

@@ -55,6 +55,7 @@ h1,h2{font-family:'Sora',sans-serif;line-height:1.25}h1{font-size:30px;margin:18
 <li><strong>Groq:</strong> transcrição de áudios em texto.</li>
 <li><strong>Google (Analytics):</strong> métricas do site, somente com o seu aceite.</li>
 <li><strong>GitHub Pages:</strong> hospedagem do site.</li>
+<li><strong>VLibras (Governo Federal):</strong> tradução do site para Libras. Só é carregado quando você ativa o recurso no botão de acessibilidade.</li>
 </ul>
 <p>Alguns desses prestadores podem processar dados fora do Brasil. Nesses casos, contamos com as salvaguardas e os mecanismos contratuais por eles oferecidos, conforme a LGPD. Não vendemos os seus dados.</p>
 
@@ -82,4 +83,5 @@ h1,h2{font-family:'Sora',sans-serif;line-height:1.25}h1{font-size:30px;margin:18
 var LEGAL = Object.assign({ cnpj: '', cidadeUF: 'Santa Helena/MA' }, window.LUMINEX || {});
 if (LEGAL.cnpj) { var a = document.getElementById('lgCnpj'); a.textContent = ' CNPJ ' + LEGAL.cnpj + '.'; a.hidden = false; }
 if (LEGAL.cidadeUF) { var b = document.getElementById('lgCid'); b.textContent = ' ' + LEGAL.cidadeUF + '.'; b.hidden = false; }
-</script></body></html>
+</script><script src="a11y.js" defer></script>
+</body></html>
