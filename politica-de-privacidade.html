@@ -28,6 +28,7 @@ h1,h2{font-family:'Sora',sans-serif;line-height:1.25}h1{font-size:30px;margin:18
 <ul>
 <li><strong>Formulário de contato:</strong> nome, WhatsApp, e-mail (opcional), a mensagem que você escrever, a confirmação do seu consentimento a cidade e o serviço de interesse (quando informados), a página de onde o pedido foi enviado e os parâmetros de campanha do link, quando houver.</li>
 <li><strong>Conversas no WhatsApp:</strong> o número, o nome de perfil, as mensagens de texto e os áudios que você enviar ao nosso atendimento.</li>
+<li><strong>Conversa com o assistente virtual do site:</strong> as mensagens que você escrever, processadas por IA para responder. Se você pedir atendimento, guardamos o resumo do pedido (briefing) e os seus dados de contato. O texto completo da conversa não é guardado.</li>
 <li><strong>Métricas do site (somente se você aceitar os cookies):</strong> páginas visitadas, tempo de visita, tipo de aparelho e navegador, e de onde você veio (por exemplo, Google ou Instagram).</li>
 </ul>
 
@@ -49,9 +50,10 @@ h1,h2{font-family:'Sora',sans-serif;line-height:1.25}h1{font-size:30px;margin:18
 <p>Usamos prestadores de serviço (operadores) que tratam dados em nosso nome, apenas para as finalidades acima:</p>
 <ul>
 <li><strong>Formspree:</strong> recebe os dados do formulário de contato.</li>
-<li><strong>Supabase:</strong> armazena os pedidos enviados pelos formulários do site, que ficam em um painel de atendimento com acesso restrito ao responsável.</li>
+<li><strong>Supabase:</strong> armazena os pedidos enviados pelos formulários e pelo assistente virtual do site, que ficam em um painel de atendimento com acesso restrito ao responsável.</li>
+<li><strong>Telegram e WhatsApp:</strong> usados para avisar o responsável quando um novo pedido chega.</li>
 <li><strong>WhatsApp (Meta):</strong> plataforma das conversas.</li>
-<li><strong>Anthropic:</strong> processamento das mensagens pela IA do atendente.</li>
+<li><strong>Anthropic:</strong> processamento das mensagens pela IA do atendente do WhatsApp e do assistente virtual do site.</li>
 <li><strong>Groq:</strong> transcrição de áudios em texto.</li>
 <li><strong>Google (Analytics):</strong> métricas do site, somente com o seu aceite.</li>
 <li><strong>GitHub Pages:</strong> hospedagem do site.</li>
@@ -84,4 +86,5 @@ var LEGAL = Object.assign({ cnpj: '', cidadeUF: 'Santa Helena/MA' }, window.LUMI
 if (LEGAL.cnpj) { var a = document.getElementById('lgCnpj'); a.textContent = ' CNPJ ' + LEGAL.cnpj + '.'; a.hidden = false; }
 if (LEGAL.cidadeUF) { var b = document.getElementById('lgCid'); b.textContent = ' ' + LEGAL.cidadeUF + '.'; b.hidden = false; }
 </script><script src="a11y.js" defer></script>
+<script src="agente.js" defer></script>
 </body></html>
